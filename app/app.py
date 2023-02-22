@@ -45,7 +45,7 @@ def test():
 @app.route('/api/testmodel', methods=['POST'])
 def process_form():
     data = request.form
-    data = model.predict([[float(data['testage'])],float(data['testsalary'])])  
+    data = model.predict([[float(data['testage'])],[float(data['testsalary'])]])  
     data_str = ", ".join(str(x) for x in data)
     return data_str
 
