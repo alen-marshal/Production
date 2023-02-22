@@ -15,7 +15,11 @@ with open('finalized_model.sav', 'rb') as f:
 
 @app.route('/api/test', methods=['GET'])
 def test():
+<<<<<<< HEAD
     # Model code
+=======
+    #Model Code
+>>>>>>> 3cd8498e8466e17a7b9a271eab3fedc4fd1a2dbd
     response = {'message': 'API hit iimv'}
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
