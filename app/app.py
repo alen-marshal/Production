@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 app = Flask(__name__)
 
 # Load the pickled data and store it in a global variable
-with open('saved_model.pb', 'rb') as f:
+with open('model_04.pkl', 'rb') as f:
     model = pickle.load(f)
 
 
@@ -44,6 +44,7 @@ def test():
 
 @app.route('/api/testmodel', methods=['POST'])
 def process_form():
+<<<<<<< HEAD
     image_file=request.files['image_file']
     image_bytes=io.BytesIO(image_file.read())
 image=Image.open(image_bytes).resize((224,224))
@@ -51,6 +52,12 @@ image_array=np.array(image)
 data=model.predict([[image_array]])
 data_str=", ".join(str(x) for x in data)
 return data_str
+=======
+    data = request.form
+    data = model.predict([[float(data['testage'])],[float(data['testsalary'])]])  
+    data_str = ", ".join(str(x) for x in data)
+    return data_str
+>>>>>>> a42696b12ee00c31ce53ae4d7beaaf98723b460a
 
 
 @app.route('/api/upload', methods=['POST'])
